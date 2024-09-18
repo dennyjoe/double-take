@@ -1,0 +1,16 @@
+version: '3.7'
+
+networks:
+  gateway:
+    external: true
+    name: gateway
+
+services:
+  double-take:
+    container_name: double-take
+    image: jakowenko/double-take
+    restart: unless-stopped
+    volumes:
+      - $INSTALL_DIR/storage:/.storage
+    networks:
+      - gateway
