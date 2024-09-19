@@ -14,3 +14,9 @@ services:
       - $INSTALL_DIR/storage:/.storage
     networks:
       - gateway
+    logging:
+      driver: syslog
+      options:
+        syslog-address: "udp://172.16.20.11:7514"
+        syslog-format: "rfc3164"
+        tag: "double-take"
